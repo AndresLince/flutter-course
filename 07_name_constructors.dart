@@ -1,15 +1,17 @@
 void main() {
   final Map<String, dynamic> rawJson = {
-    'isAlive': false,
+    'isAlive': true,
     'power': 'Money',
     'name': 'Tony Stark'
   };
 
-  final ironman = Hero(
+  final ironman = Hero.fromJson(rawJson);
+
+  /*final ironman = Hero(
     isAlive: false,
     power: 'Money',
     name: 'Tony Stark'
-  );
+  );*/
 
   print(ironman);
 }
@@ -24,6 +26,11 @@ class Hero{
     required this.power,
     required this.isAlive
   });
+
+  Hero.fromJson( Map<String, dynamic> json)
+    : name = json['name'] ?? 'No name found',
+      power = json['power'] ?? 'No power found',
+      isAlive = json['isAlive'] ?? 'No isAlive found';
 
   @override
   String toString() {
