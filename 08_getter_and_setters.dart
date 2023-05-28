@@ -9,7 +9,9 @@ void main() {
 class Square {
   double _side; //side * side
 
-  Square({ required side }): _side = side;
+  Square({ required side }):
+    assert(side >= 0, 'Value must be >= 0'),
+    _side = side;
 
   double get area {
     return _side * _side;
