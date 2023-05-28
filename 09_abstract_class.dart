@@ -1,5 +1,7 @@
 void main() {
-  final windPlant = EnergyPlant();
+  final windPlant = WindPlant(initialEnergy: 100);
+
+  print(windPlant);
 }
 enum PlantType { nuclear, wind, water }
 
@@ -13,4 +15,13 @@ abstract class EnergyPlant{
   });
 
   void consumeEnergy( double amount );
+}
+
+class WindPlant extends EnergyPlant{
+  WindPlant({ required double initialEnergy }):
+    super(energyLeft: initialEnergy, type: PlantType.wind);
+  @override
+  void consumeEnergy(double amount) {
+    energyLeft -= amount;
+  }
 }
