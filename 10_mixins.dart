@@ -25,3 +25,17 @@ class Pato extends Mamifero with Volador, Caminante,Nadador{}
 
 class Tiburon extends Mamifero with Nadador{}
 class PezVolador extends Mamifero with Nadador, Volador{}
+
+void main() {
+  final flipper = Delfin();
+  flipper.nadar();
+
+  final batman = Murcielago();
+  batman.caminar();
+  batman.volar();
+
+  final namor = Pato();
+  namor.volar();
+  namor.caminar();
+  namor.nadar();
+}
