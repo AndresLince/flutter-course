@@ -2,7 +2,17 @@ void main() {
   final windPlant = WindPlant(initialEnergy: 100);
 
   print(windPlant);
+  print('wind: ${ chargePhone(windPlant) }');
 }
+
+double chargePhone(EnergyPlant plant ) {
+  if (plant.energyLeft < 10) {
+    throw Exception('Not enougth energy');
+  }
+
+  return plant.energyLeft - 10;
+}
+
 enum PlantType { nuclear, wind, water }
 
 abstract class EnergyPlant{
